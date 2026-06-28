@@ -1,7 +1,11 @@
 uv run ruff check .
 uv run ruff format .
 
-docker run code-compiler-api      
-docker run --privileged -p 8000:8000 code-compiler-api
+# Dev
+docker compose -f docker-compose.dev.yml up
+
+# Prod
+docker compose up
+    
 
 https://www.youtube.com/watch?v=SD4KgwdjmdI
