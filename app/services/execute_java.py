@@ -1,21 +1,17 @@
 import os
 from models import ExecuteResponse
 from pathlib import Path
-from services.execute_utils import run, parse_metadata, SandboxInternalError
+from services.execute_utils import (
+    run,
+    parse_metadata,
+    SandboxInternalError,
+    ISOLATE_DIRS,
+)
 
 TIME_LIMIT = 5.0
 MEMORY_LIMIT = 256
 COMPILE_TIME_LIMIT = 30.0
 COMPILE_MEMORY_LIMIT = 512
-
-ISOLATE_DIRS = [
-    "--dir=/usr",
-    "--dir=/bin",
-    "--dir=/lib",
-    "--dir=/lib64:maybe",
-    "--dir=/etc",
-    "--dir=/dev:maybe",
-]
 
 
 async def execute(

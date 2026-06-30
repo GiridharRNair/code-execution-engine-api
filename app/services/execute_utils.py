@@ -1,6 +1,15 @@
 import asyncio
 from pathlib import Path
 
+ISOLATE_DIRS = [
+    "--dir=/usr",
+    "--dir=/bin",
+    "--dir=/lib",
+    "--dir=/lib64:maybe",
+    "--dir=/etc",
+    "--dir=/dev:maybe",
+]
+
 
 class SandboxInternalError(Exception):
     pass
