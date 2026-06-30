@@ -1,7 +1,7 @@
 [project]
 name = "Runlet"
 version = "0.1.0"
-description = "API to execute code in a sandboxed environment. Supports Java, Python, C++, and JavaScript."
+description = "Lightweight REST API for executing single-file code in a sandboxed environment. Supports Java, Python, C++, and JavaScript."
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
