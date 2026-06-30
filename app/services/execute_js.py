@@ -1,6 +1,6 @@
 from pathlib import Path
 from models import ExecuteResponse
-from execute_utils import run, parse_metadata, SandboxInternalError
+from services.execute_utils import run, parse_metadata, SandboxInternalError
 
 TIME_LIMIT = 5.0
 MEMORY_LIMIT = 256
