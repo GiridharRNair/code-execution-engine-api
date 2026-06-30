@@ -7,11 +7,6 @@ from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 
 
-app = FastAPI()
-app.state.limiter = Limiter(key_func=get_remote_address)
-app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)  # type: ignore[arg-type]
-
-
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     init_pool()
@@ -19,6 +14,10 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(lifespan=lifespan)
+
+app.state.limiter = Limiter(key_func=get_remote_address)
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)  # type: ignore[arg-type]
+
 app.include_router(health_router)
 app.include_router(execute_router)
 app.include_router(runtimes_router)
