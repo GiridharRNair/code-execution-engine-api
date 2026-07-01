@@ -1,10 +1,9 @@
 from fastapi import APIRouter, HTTPException, Request
 from models import ExecuteRequest, ExecuteResponse
 from services import execute_cpp, execute_java, execute_js, execute_python, sandbox
-from slowapi import Limiter
-from slowapi.util import get_remote_address
+from limiter import limiter
 
-limiter = Limiter(key_func=get_remote_address)
+
 router = APIRouter()
 
 _handlers = {

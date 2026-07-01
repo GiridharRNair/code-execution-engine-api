@@ -1,9 +1,7 @@
 from fastapi import APIRouter, Request
 from models import LanguageRuntime
-from slowapi import Limiter
-from slowapi.util import get_remote_address
+from limiter import limiter
 
-limiter = Limiter(key_func=get_remote_address)
 router = APIRouter()
 
 
